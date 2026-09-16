@@ -14,6 +14,7 @@ pipeline {
         stage('build') {
             steps {
                 echo 'building the application'
+                sh 'go build -o main.exe'
             }
         }
         stage('deploy') {
