@@ -1,6 +1,11 @@
 pipeline {
+    
     agent any
-
+    tools {
+        go {
+            version '1.22.2'
+        }
+    }
     stages {
         stage('test') {
             steps {
