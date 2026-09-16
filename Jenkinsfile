@@ -4,12 +4,13 @@ pipeline {
     stages {
         stage('test') {
             steps {
-                echo 'teseting'
+                echo 'testing the application'
+                sh 'go test -v ./test'
             }
         }
         stage('build') {
             steps {
-                echo 'building'
+                echo 'building the application'
             }
         }
         stage('deploy') {
