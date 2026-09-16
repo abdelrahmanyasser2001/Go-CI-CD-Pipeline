@@ -5,22 +5,18 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/YOUR_USERNAME/go-mini/src/models"
+	"github.com/abdelrahmanyasser2001/Go-CI-CD-Pipeline/src/models"
 	"github.com/google/uuid"
 )
 
-// HomeHandler handles GET /
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Hello, World!")
 }
 
-// IDHandler handles GET /id, returning a freshly generated UUID.
 func IDHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, uuid.New().String())
 }
 
-// HealthHandler handles GET /health, used by the pipeline/staging check
-// to confirm the deployed build is actually up and responding.
 func HealthHandler(w http.ResponseWriter, r *http.Request) {
 	response := models.Response{
 		Message: "I'm alive!",

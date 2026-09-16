@@ -1,4 +1,4 @@
-module github.com/YOUR_USERNAME/go-mini
+module github.com/abdelrahmanyasser2001/Go-CI-CD-Pipeline
 
 go 1.22.2
 

@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/YOUR_USERNAME/go-mini/src/handlers"
+	"github.com/abdelrahmanyasser2001/Go-CI-CD-Pipeline/src/handlers"
 )
 
 func TestHealthHandler(t *testing.T) {
