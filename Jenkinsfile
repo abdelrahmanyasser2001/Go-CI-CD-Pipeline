@@ -4,6 +4,9 @@ pipeline {
     tools {
         go '1.22.2'
     }
+    environment {
+    DOCKER_CREDS = credentials('docker-hub-credentials')
+    }
     stages {
         stage('test') {
             steps {
@@ -13,9 +16,11 @@ pipeline {
         }
         stage('build') {
             steps {
-                echo 'building the application'
-                sh 'go build -o main.exe'
-            }
+                echo 'building the artifact and pushing to docker hub'
+                sh 'echo $DOCKER_HUB_PSW| docker login -u $DOCKER_CREDS_USR --password-stdin'
+                sh 'docker build -t abdelrahmanyasserhub/go-app:1.0 .'
+                sh 'docker push abdelrahmanyasserhub/go-app:1.0'
+           }
         }
         stage('deploy') {
             steps {
@@ -24,3 +29,5 @@ pipeline {
         }
     }
 }
+
+
