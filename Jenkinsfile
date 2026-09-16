@@ -17,7 +17,7 @@ pipeline {
         stage('build') {
             steps {
                 echo 'building the artifact and pushing to docker hub'
-                sh 'echo $DOCKER_HUB_PSW| docker login -u $DOCKER_CREDS_USR --password-stdin'
+                sh 'echo $DOCKER_CREDS_PSW| docker login -u $DOCKER_CREDS_USR --password-stdin'
                 sh 'docker build -t abdelrahmanyasserhub/go-app:1.0 .'
                 sh 'docker push abdelrahmanyasserhub/go-app:1.0'
            }
